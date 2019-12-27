@@ -1,7 +1,8 @@
-class Team {
+/* eslint-disable no-unused-vars */
+export default class Team {
   constructor() {
-    this.persons = {
-      person1: {
+    this.persons = [
+      {
         name: 'Лучник',
         type: 'Bowman',
         health: 50,
@@ -9,7 +10,7 @@ class Team {
         attack: 40,
         defence: 10,
       },
-      person2: {
+      {
         name: 'Пучник',
         type: 'Powman',
         health: 50,
@@ -17,7 +18,7 @@ class Team {
         attack: 40,
         defence: 10,
       },
-      person3: {
+      {
         name: 'Ручник',
         type: 'Rowman',
         health: 50,
@@ -25,19 +26,12 @@ class Team {
         attack: 40,
         defence: 10,
       },
-    };
+    ];
   }
 
   * [Symbol.iterator]() {
-    yield this.persons.person1;
-    yield this.persons.person2;
-    yield this.persons.person3;
-    return true;
+    for (const person of this.persons) {
+      yield person;
+    }
   }
-}
-
-const team = new Team();
-
-for (const num of team) {
-  console.log(num);
 }
